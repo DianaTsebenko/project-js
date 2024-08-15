@@ -1,0 +1,96 @@
+@import '../utilities/variables';
+
+.events-list {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: 128px 128px;
+    grid-template-rows: auto;
+    column-gap: 14px;
+    justify-content: center;
+    row-gap: 50px;
+
+    .event {
+        &_img {
+            width: 100%;
+            height: 161px;
+            border-radius: 50px 0px;
+            object-fit: cover;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+
+        &_thumb {
+            position: relative;
+
+            &::after {
+                z-index: -1;
+                position: absolute;
+                content: '';
+                top: -9px;
+                right: -10px;
+                width: 109px;
+                height: 101px;
+                border-radius: 50px 0px;
+                border: 1px solid rgba(220, 86, 197, 0.3);
+            }
+
+            .container_location {
+                display: grid;
+                grid-template-columns: 6px auto;
+                column-gap: 5px;
+
+            }
+
+            .icon-location {
+                width: 6px;
+                height: 9px;
+                fill: $main_text_color;
+            }
+        }
+
+        &_name {
+            color: $accent_color;
+            text-align: center;
+            margin-bottom: 5px;
+        }
+
+        &_date {
+            color: $main_text_color;
+            font-weight: 400;
+            text-align: center;
+            margin-bottom: 5px;
+        }
+
+        &_location {
+            color: $main_text_color;
+            font-size: 12px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+    }
+
+    @media screen and (min-width: 768px) {
+        grid-template-columns: 180px 180px 180px;
+        column-gap: 27px;
+        row-gap: 58px;
+
+        .event_img {
+            height: 227px;
+        }
+
+        .event_thumb::after {
+            top: -13px;
+            right: -14px;
+            width: 153px;
+            height: 143px;
+        }
+    }
+
+    @media screen and (min-width: 1200px) {
+        grid-template-columns: repeat(4, 180px);
+        column-gap: 70px;
+        row-gap: 63px;
+    }
+}
