@@ -27,13 +27,9 @@ function renderEvents(events) {
             <img src="${imageUrl}" alt="${event.name} preview" class="event_img" />
             <p class="event_name">${event.name}</p>
             <p class="event_date">${event.dates.start.localDate}</p>
-            <div class="container_location">
-                <svg class="icon-location">
-                    <use href="images/sprite.svg#icon-location"></use>
-                </svg>
-                <p class="event_location">${event._embedded.venues[0].name}</p>
-            </div>
+            <p class="event_location">${event._embedded.venues[0].name}</p>
         </a>
+        
     </li>`;
     })
     .join('');
