@@ -29,7 +29,7 @@ function renderEvents(events) {
             <p class="event_date">${event.dates.start.localDate}</p>
             <div class="container_location">
                 <svg class="icon-location">
-                    <use href="./images/sprite.svg#icon-location"></use>
+                    <use href="images/sprite.svg#icon-location"></use>
                 </svg>
                 <p class="event_location">${event._embedded.venues[0].name}</p>
             </div>
@@ -38,7 +38,7 @@ function renderEvents(events) {
     })
     .join('');
   eventsList.insertAdjacentHTML('beforeend', eventmap);
-  console.log(events._embedded.events);
+  // console.log(events._embedded.events);
 }
 
 fetchEvents()
