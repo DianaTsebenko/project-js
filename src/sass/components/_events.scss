@@ -34,19 +34,6 @@
                 border-radius: 50px 0px;
                 border: 1px solid rgba(220, 86, 197, 0.3);
             }
-
-            .container_location {
-                display: grid;
-                grid-template-columns: 6px auto;
-                column-gap: 5px;
-
-            }
-
-            .icon-location {
-                width: 6px;
-                height: 9px;
-                fill: $main_text_color;
-            }
         }
 
         &_name {
@@ -67,6 +54,20 @@
             font-size: 12px;
             font-weight: 600;
             text-align: center;
+
+            &::before {
+                content: url(../images/icon-location.svg);
+                width: 6px;
+                height: 9px;
+                fill: $main_text_color;
+                margin-right: 3px;
+
+                @media screen and (min-width: 768px) {
+                    width: 7px;
+                    height: 10px;
+                }
+            }
+
         }
 
     }
