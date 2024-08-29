@@ -1,3 +1,6 @@
+import './sass/index.scss';
+import { onOpenModal } from './js/modal';
+
 const eventsList = document.getElementById('events-list');
 const searchForm = document.getElementById('search-form');
 const searchInput = document.querySelector('.searchInput');
@@ -11,9 +14,14 @@ let currentQuery = '';
 let currentCountry = '';
 const perPage = 20;
 
+// Define the global object for event data
+window.eventDataArray = [];
+
 searchForm.addEventListener('submit', onSubmit);
 countrySelect.addEventListener('change', onSubmit);
 loadMoreBtn.addEventListener('click', onLoadMore);
+
+eventsList.addEventListener('click', onOpenModal);
 
 async function fetchEvents(query = '', country = '', page = 0) {
   let searchUrl = `https://app.ticketmaster.com/discovery/v2/events.json?apikey=${apiKey}&page=${page}&size=${perPage}`;
@@ -44,7 +52,6 @@ function renderEvents(events) {
     eventsList.innerHTML = '';
   }
 
-  // Check if there are any events
   if (
     !events._embedded ||
     !events._embedded.events ||
@@ -55,11 +62,14 @@ function renderEvents(events) {
   }
   loadMoreBtn.style.display = 'block';
 
+  // Store the events in the global object
+  window.eventDataArray = events._embedded.events;
+
   const eventmap = events._embedded.events
     .map(event => {
       const imageUrl = getImageByCondition(event.images);
 
-      return `<li class="event_thumb"  id="${event.id}">
+      return `<li class="event_thumb" id="${event.id}">
         <a href="" class="event_link">
             <img src="${imageUrl}" alt="${event.name} preview" class="event_img" />
             <p class="event_name">${event.name}</p>
