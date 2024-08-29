@@ -35,6 +35,8 @@ function onOpenModal(evt) {
   } = eventData;
 
   refs.modalContent.innerHTML = `
+
+
     <div class="modal__icon">
       <img src="${images[4]?.url || 'default-image.jpg'}" alt="${name}">
     </div>

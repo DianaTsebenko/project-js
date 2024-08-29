@@ -20,10 +20,11 @@
 }
 
 .modal__window {
+    position: relative;
     width: 272px;
     padding: 17px;
     max-height: 98vh;
-    margin-top: 1vh;
+    margin-top: 5vh;
     border-radius: 120px 0px;
     animation-name: changeBgColor;
     animation-duration: 1200ms;
@@ -64,9 +65,16 @@
 }
 
 .modal__close-btn-icon {
-    position: relative;
-    cursor: pointer;
-}
+    margin-right: 25px;
+        margin-top: 25px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        cursor: pointer;
+        background: none;
+        border: none;
+
+    }
 
 .modal__close-btn-icon:last-child {
     top: -100%;
@@ -151,6 +159,24 @@
 
     @media screen and (min-width: 1280px) {
         font-size: 20px;
+    }
+}
+
+.main-info-list p {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    max-height: 80px;
+    overflow: hidden;
+    font-size: 14px;
+    line-height: 1.4;
+    color: #0E0E0E;
+
+    @media screen and (min-width: 768px) {}
+
+    @media screen and (min-width: 1280px) {
+        margin-bottom: 12px;
+        max-height: 70px;
+        font-size: 17px;
     }
 }
 
