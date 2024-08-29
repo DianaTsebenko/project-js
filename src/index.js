@@ -59,7 +59,7 @@ function renderEvents(events) {
     .map(event => {
       const imageUrl = getImageByCondition(event.images);
 
-      return `<li class="event_thumb">
+      return `<li class="event_thumb"  id="${event.id}">
         <a href="" class="event_link">
             <img src="${imageUrl}" alt="${event.name} preview" class="event_img" />
             <p class="event_name">${event.name}</p>
