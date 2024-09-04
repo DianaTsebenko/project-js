@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     modal: document.getElementById('event-modal'),
     list: document.getElementById('events-list'),
     modalContent: document.querySelector('.modal__window'),
+
   };
 
  // Handle opening the modal
@@ -39,7 +40,7 @@ function onOpenModal(evt) {
   refs.modalContent.innerHTML = `
 <div class="modal__close-btn-container">
     <div class="modal__close-btn">
-<svg  viewBox="0 0 25 25"  xmlns="http://www.w3.org/2000/svg">
+<svg class="modal__close-btn-icon"  viewBox="0 0 25 25"  xmlns="http://www.w3.org/2000/svg">
 <path d="M1.28557 25C0.95625 25 0.626931 24.8747 0.376724 24.6227C-0.125574 24.1204 -0.125574 23.306 0.376724 22.8038L22.8043 0.376714C23.3066 -0.125571 24.121 -0.125571 24.6233 0.376714C25.1256 0.878999 25.1256 1.69333 24.6233 2.19593L2.19598 24.6227C1.94389 24.8732 1.61457 25 1.28557 25Z" />
 <path d="M23.7147 25C23.3854 25 23.0564 24.8747 22.8059 24.6227L0.376724 2.19593C-0.125574 1.69333 -0.125574 0.878999 0.376724 0.376714C0.879022 -0.125571 1.69337 -0.125571 2.19598 0.376714L24.6233 22.8038C25.1256 23.306 25.1256 24.1204 24.6233 24.6227C24.3712 24.8732 24.0422 25 23.7147 25Z" />
 </svg>
@@ -118,16 +119,22 @@ function onOpenModal(evt) {
 
 
   // Handle closing the modal
+
+
   function onModalClose(e) {
+       
+
     if (
       e.target.classList.contains('modal__back-drop') ||
-      e.target.classList.contains('modal__close-btn-icon')
+      e.target.classList.contains('modal__close-btn')
     ) {
+       console.log('Modal is closed');
       refs.modal.classList.add('hidden');
     }
   }
 
-  // Attach event listeners
+
+
   refs.list.addEventListener('click', onOpenModal);
   refs.modal.addEventListener('click', onModalClose);
 });
